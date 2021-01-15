@@ -22,6 +22,12 @@ componentDidUpdate(){
       this.props.updateInterval * 1000
     );
   }
+  shouldComponentUpdate(nextProps, nextState) {
+  if (this.state.time === nextState.time) {
+    return false
+  }
+  return true
+}
 
   componentWillUnmount() {
     clearInterval(this.interval);
